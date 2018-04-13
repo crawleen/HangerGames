@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Roulette from './Roulette';
+import App from "./App";
+//import Roulette from './components/Roulette/Roulette';
 import registerServiceWorker from './registerServiceWorker';
-import axios from 'axios';
+//mport axios from 'axios';
 
-const handleOnComplete = (value) => {
+/*const handleOnComplete = (value) => {
   console.log(value);
 };
 
@@ -24,6 +25,9 @@ axios({
   })
   ReactDOM.render(<Roulette options={options} baseSize={300} onComplete={handleOnComplete}/>, document.getElementById('root'));
   registerServiceWorker();
-});
+});*/
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
           
 
