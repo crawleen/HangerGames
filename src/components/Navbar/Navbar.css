@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #a4c3b2;
+    color: black;
+}
+
+.navbar-brand {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.slogan {
+    text-align: right;
+}
