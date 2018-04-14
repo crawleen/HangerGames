@@ -1,0 +1,9 @@
+.hero {
+    opacity: 0.5;
+    background-position: center;
+    position: relative;
+}
+
+.scale-down {
+    object-fit: scale-down;
+}

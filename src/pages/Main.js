@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Hero from "../components/Hero/Hero";
 
 import Roulette from '../components/Roulette/Roulette';
 
@@ -28,12 +29,17 @@ class Main extends Component {
   };
   render() {
     return (
+      <div>
+        <Hero style = "opacity: 0.5" backgroundImage = "https://az616578.vo.msecnd.net/files/2016/12/12/636171217554268315-714313718_foodd.jpg">
       <Roulette
         options={this.getOptions()}
         baseSize={300}
         onComplete={this.handleOnComplete}
       />
+      </Hero>
+      </div>
     );
   }
 }
+
 export default Main;
