@@ -1,0 +1,31 @@
+{
+  "name": "roulette_test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
+    "crypto": "^1.0.1",
+    "express": "^4.16.3",
+    "isemail": "^3.1.2",
+    "joi": "^13.1.2",
+    "mongoose": "^5.0.14",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-scripts": "1.1.4",
+    "validator": "^7.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

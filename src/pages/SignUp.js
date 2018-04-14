@@ -1,6 +1,10 @@
 import React from "react";
 
-const SignUp = () => (
+const SignUpForm = (
+  onSubmit,
+  onChange,
+  errors,
+  user,) => (
     <div className = "container">
         <div className = "row">
             <div className = "col-md-12">
@@ -28,4 +32,4 @@ const SignUp = () => (
     </div>
 );
 
-export default SignUp;
+export default SignUpForm;

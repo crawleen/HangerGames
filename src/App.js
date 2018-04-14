@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/SignUpLogic";
+const config = require('./server/config');
+require('./server/models')
+
 
 const App = () => (
   <Router>
