@@ -17,6 +17,11 @@ class Roulette extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this);
     this.spin = this.spin.bind(this);
     this.rotate = this.rotate.bind(this);
+    this.drawRouletteWheel = this.drawRouletteWheel.bind(this);
+    this.getColor = this.getColor.bind(this);
+    this.RGB2Color = this.RGB2Color.bind(this);
+    this.stopRotateWheel = this.stopRotateWheel.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   static propTypes = {
@@ -36,6 +41,10 @@ class Roulette extends React.Component {
   };
 
   componentDidMount() {
+    this.drawRouletteWheel();
+  }
+  componentDidUpdate(){
+    this.state.arc = Math.PI / (this.props.options.length / 2);
     this.drawRouletteWheel();
   }
 
@@ -64,7 +73,6 @@ class Roulette extends React.Component {
   drawRouletteWheel() {
     const { options, baseSize } = this.props;
     let { startAngle, arc } = this.state;
-
 
     // const spinTimeout = null;
     // const spinTime = 0;
@@ -169,6 +177,7 @@ class Roulette extends React.Component {
   }
 
   render() {
+
     const { baseSize } = this.props;
 
     return (
@@ -179,8 +188,12 @@ class Roulette extends React.Component {
         <div className="roulette-container">
           <input type="button" value="spin" onClick={this.handleOnClick} className="button" id="spin" />
         </div>
+        {
+          
+        }
       </div>
     );
+
   }
 }
 
