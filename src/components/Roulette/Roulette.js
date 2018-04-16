@@ -35,7 +35,7 @@ class Roulette extends React.Component {
 
   static defaultProps = {
     options:  ['item1', 'item2', 'item3', 'item4', 'item5'],
-    baseSize: 275,
+    baseSize: 400,
     spinAngleStart: Math.random() * 10 + 10,
     spinTimeTotal: Math.random() * 3 + 4 * 1000,
   };
@@ -82,9 +82,9 @@ class Roulette extends React.Component {
 
     const canvas = this.refs.canvas;
     if (canvas.getContext) {
-      const outsideRadius = baseSize - 25;
-      const textRadius = baseSize - 45;
-      const insideRadius = baseSize - 55;
+      const outsideRadius = baseSize -5; // - 25;
+      const textRadius = baseSize - 55; // - 45;
+      const insideRadius = baseSize - 95; // - 55;
 
       ctx = canvas.getContext('2d');
       ctx.clearRect(0,0,600,600);
@@ -92,7 +92,7 @@ class Roulette extends React.Component {
       ctx.strokeStyle = 'white';
       ctx.lineWidth = 2;
 
-      ctx.font = '14px Helvetica, Arial';
+      ctx.font = '16px Helvetica, Arial';
 
       for(let i = 0; i < options.length; i++) {
         const angle = startAngle + i * arc;
@@ -109,13 +109,13 @@ class Roulette extends React.Component {
         ctx.translate(baseSize + Math.cos(angle + arc / 2) * textRadius,
                       baseSize + Math.sin(angle + arc / 2) * textRadius);
         ctx.rotate(angle + arc / 2 + Math.PI / 2);
-        const text = options[i];
+        const text = options[i].name;
         ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
         ctx.restore();
       }
 
       //Arrow
-      ctx.fillStyle = 'red';
+      ctx.fillStyle = 'black';
       ctx.beginPath();
       ctx.lineTo(baseSize + 10, baseSize - (outsideRadius + 20));
       ctx.lineTo(baseSize + 0, baseSize - (outsideRadius - 5));
@@ -160,10 +160,26 @@ class Roulette extends React.Component {
     const index = Math.floor((360 - degrees % 360) / arcd);
     ctx.save();
     ctx.font = 'bold 20px Helvetica, Arial';
-    const text = options[index]
-    ctx.fillText(text, baseSize - ctx.measureText(text).width / 2, baseSize / 3);
+
+    /************************************************************** */
+    const name = `Restaurant Name: ${options[index].name}`; 
+    const location = `Location: ${options[index].location}`;
+    const category = `Category: ${options[index].category}`;
+    const phone = `Phone: ${options[index].contact}`;
+    const price = `Price: ${options[index].price}`;
+    const rating = `Rating: ${options[index].rating}`;
+    //const menu = `Rating: ${options[index].menu}`;
+    
+    ctx.fillText(name, baseSize - ctx.measureText(name).width / 2, 300, baseSize*2);
+    ctx.fillText(location, baseSize - ctx.measureText(location).width / 2, 350, baseSize*2);
+    ctx.fillText(category, baseSize - ctx.measureText(category).width / 2, 400, baseSize*2);
+    ctx.fillText(phone, baseSize - ctx.measureText(phone).width / 2, 450, baseSize*2);
+    ctx.fillText(price, baseSize - ctx.measureText(price).width / 2, 500, baseSize*2);
+    ctx.fillText(rating, baseSize - ctx.measureText(rating).width / 2, 550, baseSize*2);
+    //ctx.fillText(menu, baseSize - ctx.measureText(menu).width / 2, 500, baseSize*2);
+
     ctx.restore();
-    this.props.onComplete(text);
+    this.props.onComplete(name);
   }
 
   easeOut(t, b, c, d) {
