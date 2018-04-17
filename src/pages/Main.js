@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Hero from "../components/Hero/Hero";
 
 import Roulette from '../components/Roulette/Roulette';
 
@@ -74,6 +75,7 @@ class Main extends Component {
     const { location, price, keyWord } = this.state;
     return (
        <div>
+       <Hero style = "opacity: 0.5" backgroundImage = "https://az616578.vo.msecnd.net/files/2016/12/12/636171217554268315-714313718_foodd.jpg">
          <form onSubmit={this.onSubmit}>
             <div>
               <h3>Search Criteria:</h3>
@@ -96,15 +98,16 @@ class Main extends Component {
               </select>
             </div>
             <button type="submit">Search</button>
-          </form>
-
-        <Roulette
-          options={this.state.options}
-          baseSize={400}
-          onComplete={this.handleOnComplete}
-        />
-       </div>
+          </form>      
+      <Roulette
+        options={this.state.options}
+        baseSize={400}
+        onComplete={this.handleOnComplete}
+      />
+      </Hero>
+      </div>
     );
   }
 }
+
 export default Main;

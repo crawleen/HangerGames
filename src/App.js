@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
+import Footer from "./components/Footer/Footer";
+
 
 const App = () => (
   <Router>
@@ -12,6 +14,7 @@ const App = () => (
         <Route exact path = "/" component = {Main} />
         <Route exact path = "/profile" component = {Profile} />
         <Route exact path = "/signup" component = {SignUp} />
+        <Footer />
     </div>
   </Router>
 );
