@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Hero from "../components/Hero/Hero";
+import "./Main.css";
 
 import Roulette from '../components/Roulette/Roulette';
 
@@ -75,22 +76,23 @@ class Main extends Component {
       const { location, price, keyWord } = this.state;
       return (
          <div>
+          {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
            <div>
-           {/* <Hero style = "opacity: 0.5" backgroundImage = "https://az616578.vo.msecnd.net/files/2016/12/12/636171217554268315-714313718_foodd.jpg"> */}
+           
            <form onSubmit={this.onSubmit}>
               <div>
                 <h3>Search Criteria:</h3>
               </div>
               <div>
-                <label for="keyWord">Keyword Search: </label>
+                <label for="keyWord">Cuisine Style:  </label>
                 <input type="text" name="keyWord" value={keyWord} onChange={this.onChange} />
               </div>
               <div>
-                <label for="location">City, State or Zip Code: </label>
+                <label for="location">City, State or Zip Code:  </label>
                 <input type="text" name="location" value={location} onChange={this.onChange} />
               </div>
               <div>
-                <label for="price">Price Point: </label>
+                <label for="price">Price Point:  </label>
                 <select type="text" name="price" value={price} onChange={this.onChange}>
                   <option value='1'>$</option>
                   <option value='2'>$$</option>
@@ -107,8 +109,9 @@ class Main extends Component {
             baseSize={400}
             onComplete={this.handleOnComplete}
           />
-          {/* </Hero> */}
+        
           </div>
+          {/*</Hero>*/}
          </div>
       );
   }
