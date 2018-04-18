@@ -1,5 +1,5 @@
 const bCrypt = require('bcrypt-nodejs');
-const User = require('mongoose').model('User');
+const Mongoose = require('mongoose').model('user');
 module.exports = (passport, user) => {
   const User = user;
   const LocalStrategy = require('passport-local').Strategy;
@@ -47,9 +47,7 @@ module.exports = (passport, user) => {
               email: email,
               password: userPassword,
               firstname: req.body.firstname,
-              lastname: req.body.lastname,
-              age: req.body.age,
-              interest: req.body.interests
+              lastname: req.body.lastname
             };
 
             User.create(data).then((newUser, created) => {

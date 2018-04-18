@@ -1,6 +1,4 @@
 const secrets = {
-	db: "mongodb://localhost/ReactPassportReduxExample",
-	sessionSecret: "letthisbeyoursecret"
+	db: "mongodb://localhost/Hangergames",
+	sessionSecret: "Maytheoddsbeeverinyourfavor"
 }
-
-export default secrets

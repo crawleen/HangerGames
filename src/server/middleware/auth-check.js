@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 import passport from "passport"
 import User from "../models/user"
-/*global chrome*/
 // -------------------------------------------
 
 exports.login = function(req, res, next) {

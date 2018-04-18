@@ -4,8 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUpLogic";
-const config = require('./server/config');
-require('./server/models')
+
 
 
 const App = () => (
