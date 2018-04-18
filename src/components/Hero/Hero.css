@@ -7,3 +7,11 @@
 .scale-down {
     object-fit: scale-down;
 }
+
+.transparent {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.backgroundImage {
+    background: rgba(255, 255, 255, 0.5);
+}

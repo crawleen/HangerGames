@@ -1,7 +1,7 @@
 import React from "react";
 
 const Hero = (props) => (
-    <div className = "hero scale-down" style = {{ backgroundImage: `url(${props.backgroundImage})` }}>
+    <div className = "hero transparent" style = {{ backgroundImage: `url(${props.backgroundImage})` }}>
         {props.children}
     </div>
 );
