@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Hero from "../components/Hero/Hero";
-import "./Main.css";
+//import "./Main.css";
+//import "../Images/food";
 
 import Roulette from '../components/Roulette/Roulette';
 
@@ -76,7 +77,7 @@ class Main extends Component {
       const { location, price, keyWord } = this.state;
       return (
          <div>
-          {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
+          <Hero backgroundImage = "https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
            <div>
            
            <form onSubmit={this.onSubmit}>
@@ -111,7 +112,7 @@ class Main extends Component {
           />
         
           </div>
-          {/*</Hero>*/}
+          </Hero>
          </div>
       );
   }
