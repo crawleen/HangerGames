@@ -5,16 +5,16 @@ import logo from "./logo.png";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Navbar = props => (
-  <nav className="navbar transparent navbar-inverse navbar-fixed-top">
+  <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
         <Link className="navbar-brand" to="/">
         </Link>
       </div>
-      <span>
+      <span className="mr-auto">
         <img src={logo} />
       </span>
-      <ul className="nav navbar-nav">
+      <ul className="nav navbar-nav ml-auto">
         <li
           className={
             window.location.pathname === "/" || window.location.pathname === "/main"
@@ -31,9 +31,9 @@ const Navbar = props => (
           <Link to="/signup"><span className = "glyphicon glyphicon-user" />Sign Up</Link>
         </li>
       </ul>
-      <span className = "slogan"><h4>May the odds be ever in your favor.</h4></span>
     </div>
   </nav>
 );
 
 export default Navbar;
+

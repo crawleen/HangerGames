@@ -1,18 +1,23 @@
 .navbar {
-    background-color: transparent;
+    background-color: rgba(40, 54, 69, .7);
     color: white;
     text-transform: uppercase;
     border: 0;
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.navbar-brand {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	color: white;
+	background-color: transparent;
 }
 
-.slogan {
-    text-align: right;
+.navbar-default .navbar-nav>li>a {
+	color: white;
 }
+
+.glyphicon-user:before {
+    content: none;
+  }
 
