@@ -1,10 +1,13 @@
 .navbar {
-    background-color: #a4c3b2;
-    color: black;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    border: 0;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .navbar-brand {
-    color: black;
+    color: white;
     font-size: 32px;
     font-weight: bold;
 }
@@ -12,3 +15,4 @@
 .slogan {
     text-align: right;
 }
+

@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Hero from "../components/Hero/Hero";
 import "./Main.css";
+import TheVideo from '../components/Navbar/dinner.mp4';
+import Navbar from "../components/Navbar/Navbar";
+
 
 import Roulette from '../components/Roulette/Roulette';
 
 import axios from 'axios';
+
+const Video = (props) => {
+  return (
+    <video className="video" autoPlay loop {...props}>
+      <source src={props.videoUrl}  type={props.type} />
+    </video>
+   );
+};
 
 class Main extends Component {
   handleOnComplete = value => {
@@ -75,44 +86,51 @@ class Main extends Component {
     render() {
       const { location, price, keyWord } = this.state;
       return (
-         <div>
-          {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
-           <div>
-           
-           <form onSubmit={this.onSubmit}>
-              <div>
-                <h3>Search Criteria:</h3>
-              </div>
-              <div>
-                <label for="keyWord">Cuisine Style:  </label>
-                <input type="text" name="keyWord" value={keyWord} onChange={this.onChange} />
-              </div>
-              <div>
-                <label for="location">City, State or Zip Code:  </label>
-                <input type="text" name="location" value={location} onChange={this.onChange} />
-              </div>
-              <div>
-                <label for="price">Price Point:  </label>
-                <select type="text" name="price" value={price} onChange={this.onChange}>
-                  <option value='1'>$</option>
-                  <option value='2'>$$</option>
-                  <option value='3'>$$$</option>
-                  <option value='4'>$$$$</option>
-                </select>
-              </div>
-              <button type="submit">Search</button>
-            </form>
-            </div>
-            <div>
-          <Roulette
-            options={this.state.options}
-            baseSize={400}
-            onComplete={this.handleOnComplete}
-          />
-        
+      <div>
+      <div style={{position: "relative", height: "760px"}}>
+          <div>
+            <Navbar />
+            <Video className="video" videoUrl={TheVideo} type="video/mp4" style={{position: "absolute", top: "-20px", left: 0, width: "100%", zIndex: "-1", margin: "0px"}}/>
+            {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
           </div>
           {/*</Hero>*/}
-         </div>
+
+      </div>
+      <div>
+      <div>
+          <form onSubmit={this.onSubmit}>
+                <div>
+                  <h3>Search Criteria:</h3>
+                </div>
+                <div>
+                  <label for="keyWord">Cuisine Style:  </label>
+                  <input type="text" name="keyWord" value={keyWord} onChange={this.onChange} />
+                </div>
+                <div>
+                  <label for="location">City, State or Zip Code:  </label>
+                  <input type="text" name="location" value={location} onChange={this.onChange} />
+                </div>
+                <div>
+                  <label for="price">Price Point:  </label>
+                  <select type="text" name="price" value={price} onChange={this.onChange}>
+                    <option value='1'>$</option>
+                    <option value='2'>$$</option>
+                    <option value='3'>$$$</option>
+                    <option value='4'>$$$$</option>
+                  </select>
+                </div>
+                <button type="submit">Search</button>
+            </form>
+            </div>
+            </div>
+       
+              <Roulette
+                options={this.state.options}
+                baseSize={400}
+                onComplete={this.handleOnComplete}
+              />
+            
+    </div>
       );
   }
 }
