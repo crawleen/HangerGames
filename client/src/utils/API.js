@@ -2,6 +2,8 @@ import axios from "axios";
 
 export default {
   signUp: function(SignUpData){
+    console.log("API working")
+    console.log(SignUpData)
     return axios.post("/api/auth/signup", SignUpData)
 
   },

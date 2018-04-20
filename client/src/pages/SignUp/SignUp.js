@@ -45,7 +45,7 @@ render() {
             <div className = "col-md-12">
                 <form>
                         <Input
-                        value={this.statefirstName}
+                        value={this.state.firstName}
                         onChange={this.handleInputChange}
                         name="firstName"
                         placeholder="First Name"

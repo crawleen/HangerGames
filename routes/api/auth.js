@@ -85,9 +85,9 @@ router.get("/", (req, res, next)=>{
 });
 
 router.post('/signup', (req, res, next) => {
-  console.log("Hello World")
+  console.log("Hello World Signup")
   return passport.authenticate('local-signup', (err) => {
-    console.log("passport test1")
+    
     if (err) {
       if (err.name === 'MongoError' && err.code === 11000) {
         return res.status(409).json({
