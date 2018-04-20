@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://localhost/hanger_games",
+  "jwtSecret": "a secret phrase!!"
+}
