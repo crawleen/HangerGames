@@ -77,7 +77,8 @@ render() {
                   <h4>Your Favorites List: </h4>
                   <br />
                   {this.state.options.length ? (
-                    <table>
+                    <table className = "table table-hover">
+                    <thead>
                       <tr>
                         {/* <th>Id</th> */}
                         <th>Name</th>
@@ -86,6 +87,7 @@ render() {
                         <th>Thumbs Down</th>
                         <th>Comment</th>
                       </tr>
+                      </thead>
                       {this.state.options.map(option => {
                         return (
                           <tr>
@@ -120,15 +122,16 @@ render() {
                   )}      
                   <h4>Spinned Restaurants List: </h4>
                   {this.state.options.length ? (
-                    <table>
+                    <table className = "table table-hover">
+                    <thead>
                       <tr>
                         {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Location</th>                       
-                        <th>Thumbs Up</th>
-                        <th>Thumbs Down</th>
+                        <th>Thumbs Up/Thumbs Down</th>
                         <th>Comment</th>
                       </tr>
+                    </thead>
                       {this.state.options.map(option => {
                         return (
                           <tr>
@@ -144,10 +147,8 @@ render() {
                                 {option.location}
                               </td>
                               <td>
-                                Should show a thumbs up if user liked
-                              </td>
-                              <td>
-                                Should show a thumbs down if user did not like
+                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-up"></span></button>
+                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-down"></span></button>
                               </td>
                               <td>
                                 User added comments
