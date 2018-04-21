@@ -1,9 +1,10 @@
 .heroText{
 	color: white;
 	text-align: center;
-	font-size: 50px;
+	font-size: 100px;
 	font-weight: bold;
 	padding: 150px 0px 0px 0px;
+	font-family: 'Voltaire', sans-serif;
  
 }
 
@@ -11,6 +12,8 @@
 	color: white;
 	text-align: center;
 	font-size: 40px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'Voltaire', sans-serif;
 }
 
 .arrowDown {
@@ -25,4 +28,10 @@
 .videoContainer {
 	background-color: rgba(40, 54, 69, .5);
 }
+
+.form {
+	padding: 20px;
+}
+
+
 

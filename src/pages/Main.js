@@ -103,10 +103,10 @@ class Main extends Component {
 
       </div>
       <div>
-      <div>
+      <div className= "form">
           <form onSubmit={this.onSubmit}>
                 <div>
-                  <h3>Search Criteria:</h3>
+                  <h3>Search in your area.</h3>
                 </div>
                 <div>
                   <label for="keyWord">Cuisine Style:  </label>
