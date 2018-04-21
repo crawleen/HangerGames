@@ -1,8 +1,11 @@
 import React from "react";
+import HeroSignUp from "../components/Hero/HeroSignUp";
+import "../components/Hero/Hero.css";
 
 const SignUp = () => (
     <div className = "container">
-        <div className = "row">
+        <div className = "row" id = "wrapper">
+        <HeroSignUp backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
             <div className = "col-md-12">
                 <form>
                     <div className = "form-group">
@@ -24,6 +27,7 @@ const SignUp = () => (
                     <button type = "submit" className = "btn btn-primary">Submit</button>
                 </form>
             </div>
+        </HeroSignUp>
         </div>
     </div>
 );

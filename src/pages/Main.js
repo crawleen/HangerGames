@@ -5,7 +5,8 @@ import "./Main.css";
 import TheVideo from '../components/Navbar/dinner.mp4';
 import Navbar from "../components/Navbar/Navbar";
 import Arrow from "../components/Navbar/arrow.png";
-
+//import "./Main.css";
+//import "../Images/food";
 
 import Roulette from '../components/Roulette/Roulette';
 
@@ -63,7 +64,7 @@ class Main extends Component {
     axios({
       method: 'get',
       url:
-        'https://api.foursquare.com/v2/venues/explore?v=20180405&client_id=IGRWBH0LCKSTPOA5PYAYXZZOAVSHXQFTERXTJAQAOAMZW3ZC&query="'+this.state.keyWord+'"&client_secret=ADQJIMWYL4JMZIHUMYPU1UORAJ1S4PNCG2EIB3ZUSJWJRPDU&near="'+this.state.location+'"&section=restauarant&price='+this.state.price+'&radius=5000&limit=10',
+        'https://api.foursquare.com/v2/venues/explore?v=20180405&client_id=XMYVZU2LHFQEE3CHWEBK24DSEPYJ5LPZWBDKKRTMJZSBYUY2&query="Restaurant + '+this.state.keyWord+'"&client_secret=BPI5K5OCPFTJPVVDUO3UXPPJOENZSC1YFF1GHJ4VBVCRCW1U&near="'+this.state.location+'"&section=restauarant&price='+this.state.price+'&radius=5000&limit=10',
       responseType: 'JSON'
     }).then(res => {
       console.log(res.data.response.groups[0].items);
@@ -73,7 +74,7 @@ class Main extends Component {
           "name": restauarant.venue.name, 
           "location": restauarant.venue.location.formattedAddress[0] + " " + restauarant.venue.location.formattedAddress[1],
           "category": (restauarant.venue.categories[0]? restauarant.venue.categories[0].shortName: " "),
-          "contact": restauarant.venue.contact.formattedPhone,
+          "contact": (restauarant.venue.contact? restauarant.venue.contact.formattedPhone: " "),
           "price": (restauarant.venue.price? restauarant.venue.price.message: " "), 
           "rating": restauarant.venue.rating,
           //"menu": (restauarant.venue.menu? restauarant.venue.menu.url: " "),
@@ -137,6 +138,7 @@ class Main extends Component {
               />
             
     </div>
+
       );
   }
 }
