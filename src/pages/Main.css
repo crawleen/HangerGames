@@ -3,8 +3,8 @@
 	text-align: center;
 	font-size: 100px;
 	font-weight: bold;
-	padding: 150px 0px 0px 0px;
 	font-family: 'Voltaire', sans-serif;
+	margin-top: -364px;
  
 }
 
@@ -27,10 +27,15 @@
 
 .videoContainer {
 	background-color: rgba(40, 54, 69, .5);
+	height: 100%;
 }
 
 .form {
 	padding: 20px;
+}
+
+video {
+	object-fit: fill;
 }
 
 

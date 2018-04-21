@@ -89,19 +89,19 @@ class Main extends Component {
       const { location, price, keyWord } = this.state;
       return (
       <div>
-      <div className="videoContainer" style={{position: "relative", height: "760px"}}>
-          <div>
+        <div  style={{position: "relative"}}>
+          <div className="videoContainer">
             <Navbar />
-            <Video className="video" videoUrl={TheVideo} type="video/mp4" style={{position: "absolute", top: "-20px", left: 0, width: "100%", zIndex: "-1", margin: "0px"}}/>
+            <div style={{position: "relative", height: "700px"}} >
+            <Video videoUrl={TheVideo} type="video/mp4" style={{position: "absolute", height: "700px", top: "-20px", left: 0, width: "100%", zIndex: "-1", margin: "0px"}}/>
             {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
-          
+            </div>
               <div className="heroText">Spin the Wheel</div>
               <div className="heroText2">May the odds be ever in your favor.</div>
               <span className="arrowDown">
                 <img src={Arrow} />
               </span>
-              </div>
-
+        </div>
       </div>
       <div>
       <div className= "form">
