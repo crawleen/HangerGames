@@ -89,22 +89,25 @@ class Main extends Component {
       const { location, price, keyWord } = this.state;
       return (
       <div>
-      <div className="videoContainer" style={{position: "relative", height: "760px"}}>
+        <div className="videoContainer" style={{position: "relative", height: "760px"}}>
           <div>
             <Navbar />
             <Video className="video" videoUrl={TheVideo} type="video/mp4" style={{position: "absolute", top: "-20px", left: 0, width: "100%", zIndex: "-1", margin: "0px"}}/>
-            {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
+             {/*<Hero backgroundImage = "https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">*/}
           
               <div className="heroText">Spin the Wheel</div>
               <div className="heroText2">May the odds be ever in your favor.</div>
               <span className="arrowDown">
                 <img src={Arrow} />
               </span>
-              </div>
+           </div>
 
-      </div>
+        </div>
       <div>
-      <div className= "form">
+      <Hero backgroundImage = "https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+      <div>
+        <div className= "form">
+      
           <form onSubmit={this.onSubmit}>
                 <div>
                   <h3>Search in your area.</h3>
@@ -127,16 +130,17 @@ class Main extends Component {
                   </select>
                 </div>
                 <button type="submit">Search</button>
-            </form>
-            </div>
-            </div>
+          </form>
+        </div>
+       </div>
        
               <Roulette
                 options={this.state.options}
                 baseSize={400}
                 onComplete={this.handleOnComplete}
               />
-            
+      </Hero>
+    </div>
     </div>
 
       );
