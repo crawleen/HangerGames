@@ -72,6 +72,7 @@ class Main extends Component {
       let restauarants = res.data.response.groups[0].items;
       let spinOptions = restauarants.map((restauarant, restauarants) => {
         return {
+          "id": restauarant.venue.id,
           "name": restauarant.venue.name, 
           "location": restauarant.venue.location.formattedAddress[0] + " " + restauarant.venue.location.formattedAddress[1],
           "category": (restauarant.venue.categories[0]? restauarant.venue.categories[0].shortName: " "),
