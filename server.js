@@ -5,6 +5,7 @@ const routes = require("./routes");
 const config = require('./config');
 const passport = require("passport")
 const user = require('./models/user.js')
+const restaurant = require('./models/restaurant.js')
 const app = express();
 
 const PORT = process.env.PORT || 3001;
