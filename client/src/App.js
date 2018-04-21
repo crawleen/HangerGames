@@ -1,22 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import SignUp from "./pages/SignUp"
-import Nav from "./components/Nav";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Main from "./pages/Main";
+import Profile from "./pages/Profile";
+import SignUp from "./pages/SignUp";
+import Footer from "./components/Footer/Footer";
+
 
 const App = () => (
   <Router>
     <div>
-      <Nav />
-      <Switch>
-        <Route exact path="/" component={Books} />
-        <Route exact path="/books" component={Books} />
-        <Route exact path="/books/:id" component={Detail} />
-        <Route exact path="/signUp" component={SignUp} />
-        <Route component={NoMatch} />
-      </Switch>
+        <Route exact path = "/" component = {Main} />
+        <Route exact path = "/profile" component = {Profile} />
+        <Route exact path = "/signup" component = {SignUp} />
+        <Footer />
     </div>
   </Router>
 );
