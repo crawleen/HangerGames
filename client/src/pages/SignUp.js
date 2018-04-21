@@ -1,11 +1,13 @@
 import React from "react";
 import HeroSignUp from "../components/Hero/HeroSignUp";
 import "../components/Hero/Hero.css";
+import Navbar from "../components/Navbar/Navbar";
 
 const SignUp = () => (
-    <div className = "container">
+    <div className = "container-fluid">
+        <Navbar />
         <div className = "row" id = "wrapper">
-        <HeroSignUp backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <HeroSignUp backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="signupBackground">
             <div className = "col-md-12">
                 <form>
                     <div className = "form-group">

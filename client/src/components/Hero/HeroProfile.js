@@ -1,4 +1,5 @@
 import React from "react";
+import "./Hero.css";
 
 const HeroProfile = (props) => (
     <div className = "hero-profile transparent" style = {{ backgroundImage: `url(${props.backgroundImage})` }}>
@@ -6,4 +7,4 @@ const HeroProfile = (props) => (
     </div>
 );
 
-export default HeroProfile;
+export default HeroProfile

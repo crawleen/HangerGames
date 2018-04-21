@@ -7,9 +7,10 @@ import Navbar from "../components/Navbar/Navbar";
 import Arrow from "../components/Navbar/arrow.png";
 //import "./Main.css";
 //import "../Images/food";
+
 import Roulette from '../components/Roulette/Roulette';
+
 import axios from 'axios';
-import API from "../utils/API";
 
 const Video = (props) => {
   return (
@@ -25,7 +26,6 @@ class Main extends Component {
 
   componentDidMount() {
     this.getOptions();
-    this.saveRestaurants();
   }
  
   constructor(props) {
@@ -48,7 +48,6 @@ class Main extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.saveRestaurants();
     this.getOptions();
     
 
@@ -72,7 +71,6 @@ class Main extends Component {
       let restauarants = res.data.response.groups[0].items;
       let spinOptions = restauarants.map((restauarant, restauarants) => {
         return {
-          "id": restauarant.venue.id,
           "name": restauarant.venue.name, 
           "location": restauarant.venue.location.formattedAddress[0] + " " + restauarant.venue.location.formattedAddress[1],
           "category": (restauarant.venue.categories[0]? restauarant.venue.categories[0].shortName: " "),
@@ -86,25 +84,6 @@ class Main extends Component {
       this.setState({options: spinOptions});
     });
   };
-
-  saveRestaurants = () => {
-    console.log("SAVE RESTAURANTS");
-  	// console.log("We have an article title to save in helper code: " + articleTitle);
-  	// console.log("We have an article date to save in helper code: " + articleDate);
-
-    API.saveRestaurants({
-        userId: 1,
-  			name: "Test Restaurant"
-    })
-    .catch(err => console.log(err));
-console.log(API);
-  	// return axios.post("/api/saved",
-  	// 	{
-    //     userId: 1,
-  	// 		name: "Test Restaurant"
-  	// 	}
-  	// );
-  }
 
     render() {
       const { location, price, keyWord } = this.state;
@@ -125,10 +104,7 @@ console.log(API);
         </div>
       </div>
       <div>
-      <Hero backgroundImage = "https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-      <div>
-        <div className= "form">
-      
+      <div className= "form">
           <form onSubmit={this.onSubmit}>
                 <div>
                   <h3>Search in your area.</h3>
@@ -151,17 +127,16 @@ console.log(API);
                   </select>
                 </div>
                 <button type="submit">Search</button>
-          </form>
-        </div>
-       </div>
+            </form>
+            </div>
+            </div>
        
               <Roulette
                 options={this.state.options}
                 baseSize={400}
                 onComplete={this.handleOnComplete}
               />
-      </Hero>
-    </div>
+            
     </div>
 
       );

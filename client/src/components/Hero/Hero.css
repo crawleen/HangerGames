@@ -3,7 +3,10 @@
     background-position: center;
     position: relative;
 }
-
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
 .scale-down {
     object-fit: scale-down;
 }
@@ -27,4 +30,33 @@
 
 #wrapper {
     min-height: 100%;
+}
+
+form {
+    padding: 100px 30px 0px 30px;
+}
+.profileSection {
+    padding: 100px 30px 0px 30px;
+}
+
+.profile-head {
+   padding: 100px 30px 0px 30px;
+}
+.profile-body {
+padding: 0px 30px 0px 30px;
+}
+.profileBackground {
+    background: url("https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+.signupBackground { 
+  background: url("https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

@@ -3,6 +3,7 @@ import HeroProfile from "../components/Hero/HeroProfile";
 import "../components/Hero/Hero.css";
 import HeroSignUp from "../components/Hero/HeroSignUp";
 import axios from 'axios';
+import Navbar from "../components/Navbar/Navbar";
 
 class Profile extends Component {
     handleOnComplete = value => {
@@ -67,11 +68,13 @@ class Profile extends Component {
 
 render() {
     return (           
-      <div className = "container">
-       <HeroSignUp backgroundImage = "https://images.pexels.com/photos/616330/pexels-photo-616330.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"> 
+      <div className = "container-fluid">
+      <Navbar />
+      <div className ="row" id = "wrapper">
+       <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
           <h3 className = "profile-head">Your Hanger Games Profile</h3>
-          <div className = "row">
-              <div className = "col-md-12">
+          <div className = "profile-body">
+              <div>
                   <h4>User: </h4>
                   <br />
                   <h4>Your Favorites List: </h4>
@@ -165,7 +168,8 @@ render() {
                   
               </div>
           </div>
-        </HeroSignUp>
+        </HeroProfile>
+        </div>
       </div>
     );
 }
