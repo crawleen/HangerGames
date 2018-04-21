@@ -15,9 +15,12 @@
 
 .navbar-default .navbar-nav>li>a {
 	color: white;
+    padding: 25px 15px 0px 15px;
 }
 
 .glyphicon-user:before {
     content: none;
   }
+
+
 

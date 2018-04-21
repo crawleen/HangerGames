@@ -11,10 +11,10 @@ const Navbar = props => (
         <Link className="navbar-brand" to="/">
         </Link>
       </div>
-      <span className="mr-auto">
+      <span className="mr-auto pull-left">
         <img src={logo} />
       </span>
-      <ul className="nav navbar-nav ml-auto">
+      <ul className="nav navbar-nav ml-auto pull-right">
         <li
           className={
             window.location.pathname === "/" || window.location.pathname === "/main"

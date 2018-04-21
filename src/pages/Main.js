@@ -88,7 +88,7 @@ class Main extends Component {
       const { location, price, keyWord } = this.state;
       return (
       <div>
-      <div style={{position: "relative", height: "760px"}}>
+      <div className="videoContainer" style={{position: "relative", height: "760px"}}>
           <div>
             <Navbar />
             <Video className="video" videoUrl={TheVideo} type="video/mp4" style={{position: "absolute", top: "-20px", left: 0, width: "100%", zIndex: "-1", margin: "0px"}}/>
