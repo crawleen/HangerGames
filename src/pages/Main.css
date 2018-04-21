@@ -1,0 +1,37 @@
+.heroText{
+	color: white;
+	text-align: center;
+	font-size: 100px;
+	font-weight: bold;
+	padding: 150px 0px 0px 0px;
+	font-family: 'Voltaire', sans-serif;
+ 
+}
+
+.heroText2{
+	color: white;
+	text-align: center;
+	font-size: 40px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'Voltaire', sans-serif;
+}
+
+.arrowDown {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
+    padding: 40px;
+ 
+}
+
+.videoContainer {
+	background-color: rgba(40, 54, 69, .5);
+}
+
+.form {
+	padding: 20px;
+}
+
+
+
