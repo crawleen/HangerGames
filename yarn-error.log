@@ -2391,7 +2391,7 @@ Trace:
   Exit code: 3221225786
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c concurrently "nodemon server.js" "npm run client"
-  Directory: C:\Users\Ben\Documents\Coding Class\11-Stu_ReactRouter\Solved
+  Directory: C:\Users\Ben\Documents\Coding Class\Projects\Project 3\HangerGames
   Output:
   
       at ProcessTermError.MessageError (C:\Users\Ben\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
