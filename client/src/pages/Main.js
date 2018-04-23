@@ -24,8 +24,8 @@ class Main extends Component {
   };  
 
   componentDidMount() {
-    this.getOptions();
-    this.saveRestaurants();
+    //this.getOptions();
+    //this.saveRestaurants();
   }
  
   constructor(props) {
@@ -88,16 +88,22 @@ class Main extends Component {
   };
 
   saveRestaurants = () => {
-    console.log("SAVE RESTAURANTS");
-  	// console.log("We have an article title to save in helper code: " + articleTitle);
-  	// console.log("We have an article date to save in helper code: " + articleDate);
-
+    console.log(this.state.options.length);
+    for(var i=0; i < this.state.options.length; i++){
+    console.log("SAVE RESTAURANTS" +this.state.options[i].name);
+    
     API.saveRestaurants({
         userId: 1,
-  			name: "Test Restaurant"
+        id: this.state.options[i].id,
+        name: this.state.options[i].name, 
+        location: this.state.options[i].location,
+        liked:0,
+        disliked: 0,
+        comments: ""
     })
     .catch(err => console.log(err));
 console.log(API);
+  }
   	// return axios.post("/api/saved",
   	// 	{
     //     userId: 1,
