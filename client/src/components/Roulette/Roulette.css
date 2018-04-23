@@ -10,3 +10,9 @@
   justify-content: center;
   padding: 5px;
 }
+
+.btn-default {
+	background-color: #4daf6a;
+	font-weight: bold;
+	color: white;
+}

@@ -28,6 +28,10 @@
 
 }
 
+.profilePic {
+  height: 200px;
+  border-radius: 50%;
+}
 #wrapper {
     min-height: 100%;
 }

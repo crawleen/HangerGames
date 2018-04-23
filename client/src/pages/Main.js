@@ -118,31 +118,35 @@ console.log(API);
             {/* <Hero backgroundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1200px-Good_Food_Display_-_NCI_Visuals_Online.jpg">*/}
             </div>
               <div className="heroText">Spin the Wheel</div>
-              <div className="heroText2">May the odds be ever in your favor.</div>
+              <div className="heroText2">May the odds be ever in your flavor.</div>
               <span className="arrowDown">
                 <img src={Arrow} />
               </span>
+
         </div>
       </div>
-      <div>
-      <Hero backgroundImage = "https://images.pexels.com/photos/616358/pexels-photo-616358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+
+      <div >
+  
+      <Hero backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className= "backgroundImg">
       <div>
         <div className= "form">
       
-          <form onSubmit={this.onSubmit}>
+          <form className="form-inline" onSubmit={this.onSubmit}>
+              
                 <div>
-                  <h3>Search in your area.</h3>
+                  <h3 >Search in your area.</h3>
                 </div>
-                <div>
+                <div className="form-group"> 
                   <label for="keyWord">Cuisine Style:  </label>
-                  <input type="text" name="keyWord" value={keyWord} onChange={this.onChange} />
+                  <input type="text" className="form-control" name="keyWord" value={keyWord} onChange={this.onChange} />
                 </div>
-                <div>
+                <div className="form-group">
                   <label for="location">City, State or Zip Code:  </label>
-                  <input type="text" name="location" value={location} onChange={this.onChange} />
+                  <input type="text" className="form-control" name="location" value={location} onChange={this.onChange} />
                 </div>
-                <div>
-                  <label for="price">Price Point:  </label>
+                <div className="form-group">
+                  <label className= "price"for="price">Price Point:  </label>
                   <select type="text" name="price" value={price} onChange={this.onChange}>
                     <option value='1'>$</option>
                     <option value='2'>$$</option>
@@ -150,15 +154,16 @@ console.log(API);
                     <option value='4'>$$$$</option>
                   </select>
                 </div>
-                <button type="submit">Search</button>
+                <button className="btn btn-default" type="submit">Search</button>
           </form>
         </div>
        </div>
-       
+
               <Roulette
                 options={this.state.options}
                 baseSize={400}
                 onComplete={this.handleOnComplete}
+                className="roulette"
               />
       </Hero>
     </div>

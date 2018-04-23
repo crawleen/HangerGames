@@ -4,15 +4,17 @@ import "../components/Hero/Hero.css";
 import Navbar from "../components/Navbar/Navbar";
 
 const SignUp = () => (
-    <div className = "container-fluid">
+    <div className = "container-fluid" style = {{ backgroundImage: `url(https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)` }}>
         <Navbar />
         <div className = "row" id = "wrapper">
         <HeroSignUp backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="signupBackground">
-            <div className = "col-md-12">
+            <div className = "container">
                 <form>
-                    <div className = "form-group">
-                        <label for = "inputFirstName">First Name</label>
-                        <input type = "text" className = "form-control" id = "firstNameInput" placeholder = "First Name" />
+                    <div className = "form-group row">
+                        <div className="col-3">
+                        <label for = "inputFirstName"></label>
+                        <input size="20" type = "text" className = "form-control" id = "firstNameInput" placeholder = "First Name" />
+                        </div>
                     </div>
                     <div className = "form-group">
                         <label for = "inputLastName">Last Name</label>

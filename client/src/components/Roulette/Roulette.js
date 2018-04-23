@@ -92,7 +92,7 @@ class Roulette extends React.Component {
       ctx.strokeStyle = 'white';
       ctx.lineWidth = 2;
 
-      ctx.font = '16px Helvetica, Arial';
+      ctx.font = '16px Montserrat, sans-serif';
 
       for(let i = 0; i < options.length; i++) {
         const angle = startAngle + i * arc;
@@ -159,15 +159,15 @@ class Roulette extends React.Component {
     const arcd = arc * 180 / Math.PI;
     const index = Math.floor((360 - degrees % 360) / arcd);
     ctx.save();
-    ctx.font = 'bold 20px Helvetica, Arial';
+    ctx.font = ' 20px Montserrat, sans-serif';
 
     /************************************************************** */
-    const name = `Restaurant Name: ${options[index].name}`; 
-    const location = `Location: ${options[index].location}`;
+    const name = `${options[index].name}`; 
+    const location = `${options[index].location}`;
     const category = `Category: ${options[index].category}`;
-    const phone = `Phone: ${options[index].contact}`;
-    const price = `Price: ${options[index].price}`;
-    const rating = `Rating: ${options[index].rating}`;
+    const phone = `${options[index].contact}`;
+    const price = `${options[index].price}`;
+    const rating = `${options[index].rating}`;
     //const menu = `Rating: ${options[index].menu}`;
     
     ctx.fillText(name, baseSize - ctx.measureText(name).width / 2, 300, baseSize*2);
@@ -202,7 +202,7 @@ class Roulette extends React.Component {
           <canvas ref="canvas" width={baseSize * 2} height={baseSize * 2} className="roulette-canvas"></canvas>
         </div>
         <div className="roulette-container">
-          <input type="button" value="spin" onClick={this.handleOnClick} className="button" id="spin" />
+          <input type="button" value="Spin the Wheel" onClick={this.handleOnClick} className="btn btn-default" id="spin" />
         </div>
         {
           
