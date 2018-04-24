@@ -1,10 +1,10 @@
-
 import React, { Component } from 'react';
 import HeroProfile from "../components/Hero/HeroProfile";
 import "../components/Hero/Hero.css";
 import HeroSignUp from "../components/Hero/HeroSignUp";
 import axios from 'axios';
 import Navbar from "../components/Navbar/Navbar";
+import profilePic from "../components/Navbar/profilePic.jpg";
 
 class Profile extends Component {
     handleOnComplete = value => {
@@ -69,17 +69,30 @@ class Profile extends Component {
 
 render() {
     return (           
-      <div className = "container-fluid">
+      <div className = "container">
       <Navbar />
+
       <div className ="row" id = "wrapper">
-       <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
-          <h3 className = "profile-head">Your Hanger Games Profile</h3>
+      <div className = "col-md-3">
+          <span className="img-rounded">
+                <img src={profilePic} style={{ height: "200px", width: "260px"}}/>
+                 
+              </span> 
+          </div>
+       <div className="col-md-9">
+                  <h1 className="userName">Mike Doe</h1>
+                  <button className="btn btn-default">Member since 2018</button>
+      </div>
+      <div className ="row">
           <div className = "profile-body">
               <div>
-                  <h4>User: </h4>
                   <br />
-                  <h4>Your Favorites List: </h4>
                   <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <h4 className="favTitle">Your Favorites: </h4>
                   {this.state.options.length ? (
                     <table className = "table table-hover">
                     <thead>
@@ -107,10 +120,10 @@ render() {
                                 {option.location}
                               </td>
                               <td>
-                                Should show a thumbs up if user liked
+                               Should show a thumbs up if user liked
                               </td>
                               <td>
-                                Should show a thumbs down if user did not like
+                              Should show a thumbs down if user did not like
                               </td>
                               <td>
                                 User added comments
@@ -124,7 +137,7 @@ render() {
                   ) : (
                     <h3>No Results to Display</h3>
                   )}      
-                  <h4>Spinned Restaurants List: </h4>
+                  <h4 className="favTitle">Spinned Restaurants List: </h4>
                   {this.state.options.length ? (
                     <table className = "table table-hover">
                     <thead>
@@ -169,9 +182,10 @@ render() {
                   
               </div>
           </div>
-        </HeroProfile>
+       </div>
         </div>
       </div>
+
     );
 }
 }
@@ -198,3 +212,5 @@ export default Profile;
 //         </div>
 //     </div>
 // )
+
+
