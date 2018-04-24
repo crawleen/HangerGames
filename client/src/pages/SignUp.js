@@ -1,9 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
 import HeroSignUp from "../components/Hero/HeroSignUp";
 import "../components/Hero/Hero.css";
 import Navbar from "../components/Navbar/Navbar";
+import axios from "axios";
+import API from "../utils/API";
 
-const SignUp = () => (
+
+class SignUp extends Component
+{
+onLoad = (e) =>{
+  this.saveUser();
+}
+
+saveUser = () => {
+  API.saveUser({
+    firstName: "Ben",
+    lastName: "Petrila",
+    email: "gentlegiant303@gmail.com",
+    password: "1234"
+  })
+  .catch(err=>console.log(err));
+  console.log(API)
+}
+render(){
+  return (
     <div className = "container-fluid" style = {{ backgroundImage: `url(https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)` }}>
         <Navbar />
         <div className = "row" id = "wrapper">
@@ -36,4 +56,6 @@ const SignUp = () => (
     </div>
 );
 
+}
+}
 export default SignUp;
