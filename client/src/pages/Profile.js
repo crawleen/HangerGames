@@ -71,27 +71,22 @@ render() {
     return (           
       <div className = "container">
       <Navbar />
-
+      <div className="card">
       <div className ="row" id = "wrapper">
-      <div className = "col-md-3">
-          <span className="img-rounded">
-                <img src={profilePic} style={{ height: "200px", width: "260px"}}/>
-                 
-              </span> 
-          </div>
-       <div className="col-md-9">
-                  <h1 className="userName">Mike Doe</h1>
-                  <button className="btn btn-default">Member since 2018</button>
-      </div>
+      
+        <div className="col-md-3">
+          <span>
+                <img src={profilePic} className="profPic"/>
+              </span>
+        </div>
+        <div className="col-md-9">
+                  <button className="btn btn-primary">Mike Everdeen</button>
+                  <h1 className="userName">Member Since 2018</h1>
+            </div>
+        </div>
       <div className ="row">
           <div className = "profile-body">
               <div>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
                   <h4 className="favTitle">Your Favorites: </h4>
                   {this.state.options.length ? (
                     <table className = "table table-hover">
@@ -100,8 +95,6 @@ render() {
                         {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Location</th>                       
-                        <th>Thumbs Up</th>
-                        <th>Thumbs Down</th>
                         <th>Comment</th>
                       </tr>
                       </thead>
@@ -120,12 +113,6 @@ render() {
                                 {option.location}
                               </td>
                               <td>
-                               Should show a thumbs up if user liked
-                              </td>
-                              <td>
-                              Should show a thumbs down if user did not like
-                              </td>
-                              <td>
                                 User added comments
                               </td>
                             {/* </a> */}
@@ -136,7 +123,8 @@ render() {
                     </table>                
                   ) : (
                     <h3>No Results to Display</h3>
-                  )}      
+                  )}  
+                  <br/>    
                   <h4 className="favTitle">Spinned Restaurants List: </h4>
                   {this.state.options.length ? (
                     <table className = "table table-hover">
