@@ -13,37 +13,30 @@ class Profile extends Component {
   
     componentDidMount() {
       this.getOptions();
-      this.getFavs();
-      API.getBook(this.props.match.params.id)
-      .then(res => this.setState({ restaurant: res.data }))
-      .catch(err => console.log(err));
     }
    
     constructor(props) {
       super(props);      
-      this.state = {     
-          restaurant:{},     
+      this.state = {
           options: [],
-          favs:[],
           location:'Denver, CO',
           price: '',
           keyWord: ''
       }
         this.getOptions = this.getOptions.bind(this);
-        this.getFavs = this.getFavs.bind(this);
         this.handleOnComplete = this.handleOnComplete.bind(this);
     }
   
-    // onChange = (e) => {
-    //   const state = this.state
-    //   state[e.target.name] = e.target.value;
-    //   this.setState(state);
-    // }
+    onChange = (e) => {
+      const state = this.state
+      state[e.target.name] = e.target.value;
+      this.setState(state);
+    }
   
-    // onSubmit = (e) => {
-    //   e.preventDefault();
-    //   this.getOptions();
-    // }
+    onSubmit = (e) => {
+      e.preventDefault();
+      this.getOptions();
+    }
   
   
     // getOptions = () => {
@@ -83,15 +76,6 @@ class Profile extends Component {
         .catch(err => console.log(err));
     };
 
-    getFavs = () => {
-      console.log("IN GET FAVS");
-      API.getRestaurants(true)
-        .then(res =>
-          this.setState({ favs: res.data })
-        )
-        .catch(err => console.log(err));
-    };
-
 
 render() {
     return (           
@@ -106,7 +90,7 @@ render() {
                   <br />
                   <h4>Your Favorites List: </h4>
                   <br />
-                  {this.state.favs.length ? (
+                  {this.state.options.length ? (
                     <table className = "table table-hover">
                     <thead>
                       <tr>
@@ -118,7 +102,7 @@ render() {
                         <th>Comment</th>
                       </tr>
                       </thead>
-                      {this.state.favs.map(fav => {
+                      {this.state.options.map(option => {
                         return (
                           <tr>
                            {/* <li key={option._id}> */}
@@ -127,10 +111,10 @@ render() {
                                 {option.id}
                               </td> */}
                               <td>
-                                {fav.name}
+                                {option.name}
                               </td>
                               <td>
-                                {fav.location}
+                                {option.location}
                               </td>
                               <td>
                                 Should show a thumbs up if user liked
