@@ -8,7 +8,7 @@ const SignUp = () => (
     <div className = "container-fluid" >
     <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
         <Navbar />
-                <form className="col-md-3">
+                <form className="col-md-4 col-md-offset-4">
                     <div className = "form-group">
                         <label for = "inputFirstName">Sign-up</label>
                         <input type = "text" className = "form-control" id = "firstNameInput" placeholder = "First Name" />
