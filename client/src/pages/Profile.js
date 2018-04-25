@@ -14,9 +14,9 @@ class Profile extends Component {
     componentDidMount() {
       this.getOptions();
       this.getFavs();
-      // API.getBook(this.props.match.params.id)
-      // .then(res => this.setState({ restaurant: res.data }))
-      // .catch(err => console.log(err));
+      API.getBook(this.props.match.params.id)
+      .then(res => this.setState({ restaurant: res.data }))
+      .catch(err => console.log(err));
     }
    
     constructor(props) {
