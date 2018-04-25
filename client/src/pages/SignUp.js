@@ -5,6 +5,7 @@ import HeroProfile from "../components/Hero/HeroProfile";
 import Navbar from "../components/Navbar/Navbar";
 import API from '../utils/API';
 
+<<<<<<< HEAD
 class Create extends Component {
   constructor(){
     super();
@@ -23,6 +24,41 @@ class Create extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+=======
+const SignUp = () => (
+    <div className = "container-fluid" >
+    <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
+        <Navbar />
+                <form className="col-md-4 col-md-offset-4">
+                    <div className = "form-group">
+                        <label for = "inputFirstName">Sign-up</label>
+                        <input type = "text" className = "form-control" id = "firstNameInput" placeholder = "First Name" />
+                        </div>
+                    <div className = "form-group">
+                        
+                        <label for = "inputLastName"></label>
+                        <input type = "text" className = "form-control" id = "lastNameInput" placeholder = "Last Name" />
+                    
+                    </div>
+                    <div className = "form-group">
+                   
+                        <label for = "inputEmail"></label>
+                        <input type = "email" className = "form-control" id = "emailInput" placeholder = "Email" />
+                    
+                    </div>
+                    <div className = "form-group">
+                   
+                        <label for = "inputPassword"></label>
+                        <input type = "password" className = "form-control" id = "passwordInput" placeholder = "Password" />
+                       
+                    </div>
+                    <button type = "submit" className = "btn btn-default">Submit</button>
+                </form>
+       
+         </HeroProfile>
+    </div>
+);
+>>>>>>> f316385d095c6ae3b89c6fc792425947644dd1f9
 
     const {firstName, lastName, email, password} = this.state;
     API.register(firstName, lastName, email, password).then(result=> {
