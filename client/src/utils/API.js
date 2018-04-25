@@ -9,7 +9,8 @@ export default {
         return axios.get("/api/restaurants/" + id);
       },
       getRestaurants: function(liked) {
-        return axios.get("/api/restaurants/:" + liked);
+        console.log(liked);
+        return axios.get("/api/restaurants/:" +liked);
       },
     saveRestaurants: function(restaurantData) {
         return axios.post("/api/restaurants", restaurantData);

@@ -16,16 +16,13 @@ router.route("/")
   // .put(booksController.update)
   // .delete(booksController.remove);
 
-  router
-  .route("/:id")
-  .get(restaurantsController.findById)
-  .put(restaurantsController.update);
+  // router
+  // .route("/:id")
+  // .get(restaurantsController.findById)
+  // .put(restaurantsController.update);
   //.delete(restaurantsController.remove);
 
   //.get(restaurantsController.findAll)
-router.get('/test', (req, res, next)=>{
-  console.log('this route works');
-});
   // .get(restaurantsController.findById)
   // .put(restaurantsController.update)
   // .delete(restaurantsController.remove);

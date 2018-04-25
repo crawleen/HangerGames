@@ -16,16 +16,16 @@ module.exports = {
   },
   findFavorites: function(req, res) {
     db
-      .findFavorites(req.params.liked)
+      .find({liked: {$eq: true}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    db.Book
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // findById: function(req, res) {
+  //   db.Book
+  //     .findById(req.params.id)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   update: function(req, res) {
     db.Book
       .findOneAndUpdate({ _id: req.params.id }, req.body)
