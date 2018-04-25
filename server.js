@@ -41,7 +41,7 @@ var auth = require('./routes/api/auth');
 var app = express();
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/hanger_games', { promiseLibrary: require('bluebird') })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/hanger_games', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('connection successful'))
   .catch((err) => console.error(err));
 
