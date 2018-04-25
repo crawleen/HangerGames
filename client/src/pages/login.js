@@ -8,8 +8,6 @@ class Login extends Component {
   constructor(){
     super();
     this.state = {
-      firstName: '',
-      lastName: '',
       email: '',
       password: ''
     };
@@ -23,9 +21,9 @@ class Login extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-  const {firstName, lastName, email, password} = this.state;
+  const {email, password} = this.state;
 
-    API.login(firstName, lastName, email, password)
+    API.login(email, password)
       .then((result) => {
         localStorage.setItem('jwtToken', result.data.token);
         this.setState({ message: '' });
@@ -39,7 +37,7 @@ class Login extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, password, message } = this.state;
+    const {email, password, message } = this.state;
     return (
       <div className="container">
         <form className="form-signin" onSubmit={this.onSubmit}>

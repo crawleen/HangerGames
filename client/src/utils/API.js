@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/book");
   },
   // Gets the book with the given id
-  login: function(username, password) {
-    return axios.post('/api/auth/login', { username, password });
+  login: function(email, password) {
+    return axios.post('/api/auth/login', { email, password });
   },
   register: function(firstName, lastName, email, password) {
     return axios.post('/api/auth/register', { firstName, lastName, email, password })
