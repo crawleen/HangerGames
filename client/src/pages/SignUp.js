@@ -23,7 +23,7 @@ class Create extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-=======
+
 const SignUp = () => (
     <div className = "container-fluid" >
     <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
@@ -57,7 +57,6 @@ const SignUp = () => (
          </HeroProfile>
     </div>
 );
->>>>>>> f316385d095c6ae3b89c6fc792425947644dd1f9
 
     const {firstName, lastName, email, password} = this.state;
     API.register(firstName, lastName, email, password).then(result=> {
