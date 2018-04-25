@@ -5,7 +5,6 @@ import HeroProfile from "../components/Hero/HeroProfile";
 import Navbar from "../components/Navbar/Navbar";
 import API from '../utils/API';
 
-<<<<<<< HEAD
 class Create extends Component {
   constructor(){
     super();
