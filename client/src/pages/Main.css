@@ -30,12 +30,15 @@
 	background-color: rgba(40, 54, 69, .5);
 	height: 100%;
 }
-
+.form-inline {
+	display: inline;
+}
 .form {
 	margin-top: 0px;
 	z-index: 10;
 	margin-bottom: 15px;
 	font-family: 'Montserrat', sans-serif;
+	padding-left: 10px;
 }
 
 video {
