@@ -1,0 +1,81 @@
+.heroText{
+	color: white;
+	text-align: center;
+	font-size: 80px;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: -320px;
+
+ 
+}
+
+.heroText2{
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	padding: 0px 0px 0px 0px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.arrowDown {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    padding: 40px;
+ 
+}
+
+.videoContainer {
+	background-color: rgba(40, 54, 69, .5);
+	height: 100%;
+}
+
+.form {
+	margin-top: 0px;
+	z-index: 10;
+	margin-bottom: 15px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+video {
+	object-fit: fill;
+}
+
+.backgroundImg {
+	z-index: -1;
+}
+
+.roulette {
+	padding-top: 180px;
+}
+
+input { margin-left: 10px; margin-right: 10px;}
+.price {
+	margin-right: 10px;
+
+}
+button {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.btn-default {
+	background-color: #4daf6a;
+	font-weight: bold;
+	color: white;
+}
+
+.profile-head {
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+}
+.profile-body {
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.profilePic {
+	width: 50%;
+	height:50%;
+}

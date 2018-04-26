@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Ben\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Users\514094\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
 
 PATH: 
-  C:\Users\Ben\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Ben\bin;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.6\bin;C:\xampp\php;C:\MAMP\bin\php\php7.1.7;C:\ProgramData\ComposerSetup\bin;C:\Users\Ben\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Users\Ben\AppData\Local\Programs\Python\Python36-32;C:\Users\Ben\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Users\Ben\AppData\Local\atom\bin;C:\Users\Ben\AppData\Local\Microsoft\WindowsApps;C:\Users\Ben\AppData\Roaming\npm;C:\Users\Ben\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;C:\C;C:\Users\Ben\AppData\Local\Programs\Python\Python36-32
+  C:\ProgramData\Oracle\Java\javapath;c:\tfs\tools\bin;C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Microsoft Shared\Microsoft Online Services;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\10.0\DLLShared\;%BPADir%;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Windows\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft Team Foundation Server 2015 Power Tools\;C:\Python27\;C:\Python27\Tools\i18n;c:\tfs\tools\bin;C:\Program Files\MongoDB\Server\3.6\bin; C:\MAMP\bin\php\php7.1.5; c:\xampp\php;C:\Program Files\Heroku\bin;C:\Users\514094\AppData\Local\atom\bin;C:\Users\514094\AppData\Roaming\npm;C:\Program Files\Microsoft VS Code\bin;C:\Users\514094\AppData\Local\ComposerSetup\bin;C:\Users\514094\AppData\Roaming\Composer\vendor\bin
 
 Yarn version: 
   1.5.1
@@ -36,13 +36,15 @@ npm manifest:
     },
     "dependencies": {
       "axios": "^0.16.2",
-      "body-parser": "^1.17.2",
       "bcryptjs": "^2.4.3",
+      "body-parser": "^1.17.2",
       "express": "^4.15.4",
+      "jsonwebtoken": "^7.4.1",
       "mongoose": "^5.0.11",
       "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
-      "jsonwebtoken": "^7.4.1",
+      "passport-local": "^1.0.0",
+      "passport-local-mongoose": "^5.0.0",
+      "react-router-hash-link": "^1.2.0",
       "validator": "^7.0.0"
     }
   }
@@ -827,6 +829,10 @@ Lockfile:
       string-width "^1.0.1"
       strip-ansi "^3.0.1"
       wide-align "^1.1.0"
+  
+  generaterr@^1.5.0:
+    version "1.5.0"
+    resolved "https://registry.yarnpkg.com/generaterr/-/generaterr-1.5.0.tgz#b0ceb6cc5164df2a061338cc340a8615395c52fc"
   
   get-stream@^3.0.0:
     version "3.0.0"
@@ -1636,6 +1642,16 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   
+  passport-local-mongoose@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.yarnpkg.com/passport-local-mongoose/-/passport-local-mongoose-5.0.0.tgz#7a482bd5a256b6112b616b339ee7d1f4e0bc51b3"
+    dependencies:
+      debug "^3.1.0"
+      generaterr "^1.5.0"
+      passport-local "^1.0.0"
+      scmp "^2.0.0"
+      semver "^5.5.0"
+  
   passport-local@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
@@ -1882,6 +1898,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
     dependencies:
       ret "~0.1.10"
+  
+  scmp@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/scmp/-/scmp-2.0.0.tgz#247110ef22ccf897b13a3f0abddb52782393cd6a"
   
   semver-diff@^2.0.0:
     version "2.1.0"
@@ -2389,14 +2409,14 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 3221225786
-  Command: C:\WINDOWS\system32\cmd.exe
+  Command: C:\Windows\system32\cmd.exe
   Arguments: /d /s /c concurrently "nodemon server.js" "npm run client"
-  Directory: C:\Users\Ben\Documents\Coding Class\Projects\Project 3\HangerGames
+  Directory: C:\Users\514094\Desktop\Personal\DU_Bootcamp\Project3\HangerGames
   Output:
   
-      at ProcessTermError.MessageError (C:\Users\Ben\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\Ben\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\Ben\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
+      at ProcessTermError.MessageError (C:\Users\514094\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Users\514094\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Users\514094\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
       at emitTwo (events.js:126:13)
       at ChildProcess.emit (events.js:214:7)
       at maybeClose (internal/child_process.js:925:16)

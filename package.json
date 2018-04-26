@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "HangerGames",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "HangerGames",
   "main": "server.js",
   "scripts": {
     "server": "node ./bin/www",

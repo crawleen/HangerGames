@@ -1,0 +1,23 @@
+footer {
+	position: fixed;
+    height: 70px;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    background-color: rgb(40, 54, 69);
+
+}
+
+.footer a {
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  transition: all .5s ease;
+  align-content: left;
+}
+
+.footer a:hover {
+  color: rgba(40, 54, 69, 0);
+}

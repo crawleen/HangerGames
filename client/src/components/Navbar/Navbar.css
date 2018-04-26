@@ -1,0 +1,26 @@
+.navbar {
+    background-color: rgba(40, 54, 69, .7);
+    color: white;
+    text-transform: uppercase;
+    border: 0;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	color: white;
+	background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
+    padding: 25px 15px 0px 15px;
+}
+
+.glyphicon-user:before {
+    content: none;
+  }
+
+
+
