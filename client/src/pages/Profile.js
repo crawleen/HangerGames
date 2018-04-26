@@ -122,9 +122,18 @@ render() {
         <div className="col-md-9">
                   <button className="btn btn-primary">Mike Everdeen</button>
                   <h1 className="userName">Member Since 2018</h1>
+                  <br/>
+                  <h2 className="stats">Last Login:</h2> <h2 className="statResult">April 20th, 2018</h2>
+                  <br/>
+                  <h2 className="stats">Most Searched Cuisine:</h2><h2 className="statResult">Thai</h2>
+                  <br/>
+                  <h2 className="stats">Last Restaurant Favorited:</h2><h2 className="statResult">City,O'City</h2>
             </div>
+<hr className="style1" />
         </div>
+
       <div className ="row">
+
           <div className = "profile-body">
               <div>
                   <h4 className="favTitle">Your Favorites: </h4>

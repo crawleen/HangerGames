@@ -137,7 +137,7 @@ class Main extends Component {
           <form className="form-inline" onSubmit={this.onSubmit}>
               
                 <div>
-                  <h3 >Search in your area.</h3>
+                  <h3 >Search in your area, then spin the wheel.</h3>
                 </div>
                 <div className="form-group"> 
                   <label for="keyWord">Cuisine Style:  </label>
