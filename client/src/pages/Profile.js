@@ -14,15 +14,11 @@ class Profile extends Component {
     componentDidMount() {
       this.getOptions();
       this.getFavs();
-      // API.getBook(this.props.match.params.id)
-      // .then(res => this.setState({ restaurant: res.data }))
-      // .catch(err => console.log(err));
     }
    
     constructor(props) {
       super(props);      
       this.state = {     
-          restaurant:{},     
           options: [],
           favs:[],
           location:'Denver, CO',
@@ -75,7 +71,6 @@ class Profile extends Component {
     // };
 
     getOptions = () => {
-      console.log("IN GET OPTIONS");
       API.getBooks()
         .then(res =>
           this.setState({ options: res.data, name: "" })
@@ -84,13 +79,32 @@ class Profile extends Component {
     };
 
     getFavs = () => {
-      console.log("IN GET FAVS");
       API.getRestaurants(true)
         .then(res =>
           this.setState({ favs: res.data })
         )
         .catch(err => console.log(err));
     };
+
+    onLikeClick = (option, e) => {  
+      API.updateLike(option.id)
+        .then(res =>
+          this.setState(option.liked)
+        )
+        .catch(err => console.log(err));
+        this.getOptions();
+        this.getFavs();
+    }
+
+    onDislikeClick = (option, e) => {  
+      API.updateDislike(option.id)
+        .then(res =>
+          this.setState(option.disliked)
+        )
+        .catch(err => console.log(err));
+        this.getOptions();
+        this.getFavs();
+    }
 
 
 render() {
@@ -176,6 +190,8 @@ render() {
                       </tr>
                     </thead>
                       {this.state.options.map(option => {
+                         let boundLikeClick = this.onLikeClick.bind(this, option);
+                         let boundDislikeClick = this.onDislikeClick.bind(this, option);
                         return (
                           <tr>
                            {/* <li key={option._id}> */}
@@ -190,8 +206,8 @@ render() {
                                 {option.location}
                               </td>
                               <td>
-                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-up"></span></button>
-                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-down"></span></button>
+                                <button style={{backgroundColor: option.liked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundLikeClick}><span className = "glyphicon glyphicon-thumbs-up"></span></button>
+                                <button style={{backgroundColor: option.disliked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundDislikeClick}><span className = "glyphicon glyphicon-thumbs-down"></span></button>
                               </td>
                               <td>
                                 User added comments

@@ -26,9 +26,15 @@ module.exports = {
   //     .then(dbModel => res.json(dbModel))
   //     .catch(err => res.status(422).json(err));
   // },
-  update: function(req, res) {
-    db.Book
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+  updateLike: function(req, res) {
+    db
+    .update({ "id": req.params.id }, {$set: {"liked":true, "disliked":false}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  updateDislike: function(req, res) {
+    db
+    .update({ "id": req.params.id }, {$set: {"disliked":true, "liked":false}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }  
