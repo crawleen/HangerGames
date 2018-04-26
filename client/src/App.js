@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer/Footer";
+
 import registerServiceWorker from './registerServiceWorker';
 import Login from './pages/login'
 

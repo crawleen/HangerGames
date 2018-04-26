@@ -2,15 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-// const config = require("./config");
 const passport = require("passport")
 const user = require('./models/user.js')
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 const restaurant = require('./models/restaurant.js')
 var auth = require('./routes/api/auth');
 var app = express();
+
+const restaurant = require('./models/restaurant.js')
+const app = express();
+
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/hanger_games', { promiseLibrary: require('bluebird') })

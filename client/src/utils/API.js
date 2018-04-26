@@ -14,6 +14,7 @@ export default {
       },
     saveRestaurants: function(restaurantData) {
         return axios.post("/api/restaurants", restaurantData);
+
     },
     login: function(email, password) {
   return axios.post('/api/auth/login', { email, password });
@@ -22,4 +23,7 @@ register: function(firstName, lastName, email, password) {
   return axios.post('/api/auth/register', { firstName, lastName, email, password })
 }
 
+
+    }
+    
 };
