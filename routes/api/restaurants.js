@@ -4,17 +4,32 @@ const restaurantsController = require("../../controllers/restaurantsController")
 
 // Matches with "/api/restaurants"
 router.route("/")
+  .get(restaurantsController.findAll)
+  .get(restaurantsController.findFavorites)
   .post(restaurantsController.create);
-  console.log("IN ROUTES");
+
+  router
+  .route("/:liked")
+  .get(restaurantsController.findFavorites)
+  //.put(restaurantsController.update);
+  // .get(booksController.findById)
+  // .put(booksController.update)
+  // .delete(booksController.remove);
+
+  router
+  .route("/thumbsup:id")  
+  .put(restaurantsController.updateLike);
+  //.get(restaurantsController.findById)
+  //.delete(restaurantsController.remove);
+
+  router
+  .route("/thumbsdown:id")  
+  .put(restaurantsController.updateDislike);
+
   //.get(restaurantsController.findAll)
-router.get('/test', (req, res, next)=>{
-  console.log('this route works');
-});
-// Matches with "/api/restaurants/:id"
-router
-  .route("/:id")
   // .get(restaurantsController.findById)
   // .put(restaurantsController.update)
   // .delete(restaurantsController.remove);
 
 module.exports = router;
+

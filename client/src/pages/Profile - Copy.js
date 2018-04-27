@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import HeroProfile from "../components/Hero/HeroProfile";
 import "../components/Hero/Hero.css";
@@ -5,7 +6,6 @@ import HeroSignUp from "../components/Hero/HeroSignUp";
 import axios from 'axios';
 import Navbar from "../components/Navbar/Navbar";
 import API from "../utils/API";
-import profilePic from "../components/Navbar/profilePic.jpg";
 
 class Profile extends Component {
     handleOnComplete = value => {
@@ -13,33 +13,30 @@ class Profile extends Component {
   
     componentDidMount() {
       this.getOptions();
-      this.getFavs();
     }
    
     constructor(props) {
       super(props);      
-      this.state = {     
+      this.state = {
           options: [],
-          favs:[],
           location:'Denver, CO',
           price: '',
           keyWord: ''
       }
         this.getOptions = this.getOptions.bind(this);
-        this.getFavs = this.getFavs.bind(this);
         this.handleOnComplete = this.handleOnComplete.bind(this);
     }
   
-    // onChange = (e) => {
-    //   const state = this.state
-    //   state[e.target.name] = e.target.value;
-    //   this.setState(state);
-    // }
+    onChange = (e) => {
+      const state = this.state
+      state[e.target.name] = e.target.value;
+      this.setState(state);
+    }
   
-    // onSubmit = (e) => {
-    //   e.preventDefault();
-    //   this.getOptions();
-    // }
+    onSubmit = (e) => {
+      e.preventDefault();
+      this.getOptions();
+    }
   
   
     // getOptions = () => {
@@ -71,6 +68,7 @@ class Profile extends Component {
     // };
 
     getOptions = () => {
+      console.log("IN GET OPTIONS");
       API.getBooks()
         .then(res =>
           this.setState({ options: res.data, name: "" })
@@ -78,106 +76,20 @@ class Profile extends Component {
         .catch(err => console.log(err));
     };
 
-    getFavs = () => {
-      API.getRestaurants(true)
-        .then(res =>
-          this.setState({ favs: res.data })
-        )
-        .catch(err => console.log(err));
-    };
-
-    onLikeClick = (option, e) => {  
-      API.updateLike(option.id)
-        .then(res =>
-          this.setState(option.liked)
-        )
-        .catch(err => console.log(err));
-        this.getOptions();
-        this.getFavs();
-    }
-
-    onDislikeClick = (option, e) => {  
-      API.updateDislike(option.id)
-        .then(res =>
-          this.setState(option.disliked)
-        )
-        .catch(err => console.log(err));
-        this.getOptions();
-        this.getFavs();
-    }
-
 
 render() {
     return (           
-      <div className = "container">
+      <div className = "container-fluid">
       <Navbar />
-      <div className="card">
       <div className ="row" id = "wrapper">
-      
-        <div className="col-md-3">
-          <span>
-                <img src={profilePic} className="profPic"/>
-              </span>
-        </div>
-        <div className="col-md-9">
-                  <button className="btn btn-primary">Mike Everdeen</button>
-                  <h1 className="userName">Member Since 2018</h1>
-                  <br/>
-                  <h2 className="stats">Last Login:</h2> <h2 className="statResult">April 20th, 2018</h2>
-                  <br/>
-                  <h2 className="stats">Most Searched Cuisine:</h2><h2 className="statResult">Thai</h2>
-                  <br/>
-                  <h2 className="stats">Last Restaurant Favorited:</h2><h2 className="statResult">City,O'City</h2>
-            </div>
-<hr className="style1" />
-        </div>
-
-      <div className ="row">
-
+       <HeroProfile backgroundImage = "https://images.pexels.com/photos/349608/pexels-photo-349608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" className="profileBackground">
+          <h3 className = "profile-head">Your Hanger Games Profile</h3>
           <div className = "profile-body">
               <div>
-                  <h4 className="favTitle">Your Favorites: </h4>
+                  <h4>User: </h4>
                   <br />
                   <h4>Your Favorites List: </h4>
                   <br />
-                  {this.state.favs.length ? (
-                    <table className = "table table-hover">
-                    <thead>
-                      <tr>
-                        {/* <th>Id</th> */}
-                        <th>Name</th>
-                        <th>Location</th>                       
-                        <th>Comment</th>
-                      </tr>
-                      </thead>
-                      {this.state.favs.map(fav => {
-                        return (
-                          <tr>
-                           {/* <li key={option._id}> */}
-                            {/* <a href={"/books/" + book._id}> */}
-                              {/* <td>
-                                {option.id}
-                              </td> */}
-                              <td>
-                                {fav.name}
-                              </td>
-                              <td>
-                                {fav.location}
-                              </td>
-                              <td>
-                                User added comments
-                              </td>
-                            {/* </a> */}
-                            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
-                          </tr>
-                        );
-                      })}
-                    </table>                
-                  ) : (
-                    <h3>No Results to Display</h3>
-                  )}  
-                  <br/>    
-                  <h4 className="favTitle">Spinned Restaurants List: </h4>
                   {this.state.options.length ? (
                     <table className = "table table-hover">
                     <thead>
@@ -185,13 +97,12 @@ render() {
                         {/* <th>Id</th> */}
                         <th>Name</th>
                         <th>Location</th>                       
-                        <th>Thumbs Up/Thumbs Down</th>
+                        <th>Thumbs Up</th>
+                        <th>Thumbs Down</th>
                         <th>Comment</th>
                       </tr>
-                    </thead>
+                      </thead>
                       {this.state.options.map(option => {
-                         let boundLikeClick = this.onLikeClick.bind(this, option);
-                         let boundDislikeClick = this.onDislikeClick.bind(this, option);
                         return (
                           <tr>
                            {/* <li key={option._id}> */}
@@ -206,8 +117,52 @@ render() {
                                 {option.location}
                               </td>
                               <td>
-                                <button style={{backgroundColor: option.liked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundLikeClick}><span className = "glyphicon glyphicon-thumbs-up"></span></button>
-                                <button style={{backgroundColor: option.disliked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundDislikeClick}><span className = "glyphicon glyphicon-thumbs-down"></span></button>
+                                Should show a thumbs up if user liked
+                              </td>
+                              <td>
+                                Should show a thumbs down if user did not like
+                              </td>
+                              <td>
+                                User added comments
+                              </td>
+                            {/* </a> */}
+                            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                          </tr>
+                        );
+                      })}
+                    </table>                
+                  ) : (
+                    <h3>No Results to Display</h3>
+                  )}      
+                  <h4>Spinned Restaurants List: </h4>
+                  {this.state.options.length ? (
+                    <table className = "table table-hover">
+                    <thead>
+                      <tr>
+                        {/* <th>Id</th> */}
+                        <th>Name</th>
+                        <th>Location</th>                       
+                        <th>Thumbs Up/Thumbs Down</th>
+                        <th>Comment</th>
+                      </tr>
+                    </thead>
+                      {this.state.options.map(option => {
+                        return (
+                          <tr>
+                           {/* <li key={option._id}> */}
+                            {/* <a href={"/books/" + book._id}> */}
+                              {/* <td>
+                                {option.id}
+                              </td> */}
+                              <td>
+                                {option.name}
+                              </td>
+                              <td>
+                                {option.location}
+                              </td>
+                              <td>
+                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-up"></span></button>
+                                <button type = "button" className = "btn btn-default"><span className = "glyphicon glyphicon-thumbs-down"></span></button>
                               </td>
                               <td>
                                 User added comments
@@ -224,11 +179,11 @@ render() {
                   
               </div>
           </div>
-       </div>
+        </HeroProfile>
         </div>
       </div>
-
     );
 }
 }
+
 export default Profile;

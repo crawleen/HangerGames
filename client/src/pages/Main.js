@@ -78,7 +78,7 @@ class Main extends Component {
           "category": (restauarant.venue.categories[0]? restauarant.venue.categories[0].shortName: " "),
           "contact": (restauarant.venue.contact? restauarant.venue.contact.formattedPhone: " "),
           "price": (restauarant.venue.price? restauarant.venue.price.message: " "), 
-          "rating": restauarant.venue.rating,
+          "rating": restauarant.venue.rating? restauarant.venue.rating:""
           //"menu": (restauarant.venue.menu? restauarant.venue.menu.url: " "),
         };
       });
@@ -88,10 +88,7 @@ class Main extends Component {
   };
 
   saveRestaurants = () => {
-    console.log(this.state.options.length);
     for(var i=0; i < this.state.options.length; i++){
-    console.log("SAVE RESTAURANTS" +this.state.options[i].name);
-    
     API.saveRestaurants({
         userId: 1,
         id: this.state.options[i].id,
@@ -102,7 +99,6 @@ class Main extends Component {
         comments: ""
     })
     .catch(err => console.log(err));
-console.log(API);
   }
   	// return axios.post("/api/saved",
   	// 	{
@@ -141,7 +137,7 @@ console.log(API);
           <form className="form-inline" onSubmit={this.onSubmit}>
               
                 <div>
-                  <h3 >Search in your area.</h3>
+                  <h3 >Search in your area, then spin the wheel.</h3>
                 </div>
                 <div className="form-group"> 
                   <label for="keyWord">Cuisine Style:  </label>
