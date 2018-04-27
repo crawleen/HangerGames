@@ -14,7 +14,21 @@
     background-color: white;
 
 }
-
+.stats {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  color: #4daf6a;
+  display: inline;
+}
+.statResult {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  display: inline;
+}
 /* On mouse-over, add a deeper shadow */
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -90,7 +104,9 @@ table {
   background-color: white;
   padding: 15px;
 }
-
+input {
+  margin-bottom: 10px;
+}
 .row {
   margin-top: 100px;
 }
@@ -99,5 +115,8 @@ body {
     background-repeat: no-repeat;
     background-position: right top;
     background-attachment: fixed;
+    min-height: 400px;
+    margin-bottom: 100px;
+    clear: both;
 }
 
