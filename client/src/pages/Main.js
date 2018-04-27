@@ -37,6 +37,7 @@ class Main extends Component {
         keyWord: ''
     }
       this.getOptions = this.getOptions.bind(this);
+      this.saveRestaurants = this.saveRestaurants.bind(this);
       this.handleOnComplete = this.handleOnComplete.bind(this);
   }
 
@@ -48,16 +49,8 @@ class Main extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.saveRestaurants();
     this.getOptions();
-    
-
-    // axios.post('/', { fname, lname, email })
-    //   .then((result) => {
-    //     //access the results here....
-    //   });
   }
-
 
   getOptions = () => {
     let spinOptions = [];
@@ -84,6 +77,7 @@ class Main extends Component {
       });
 
       this.setState({options: spinOptions});
+      this.saveRestaurants();
     });
   };
 
@@ -99,13 +93,7 @@ class Main extends Component {
         comments: ""
     })
     .catch(err => console.log(err));
-  }
-  	// return axios.post("/api/saved",
-  	// 	{
-    //     userId: 1,
-  	// 		name: "Test Restaurant"
-  	// 	}
-  	// );
+    }  	
   }
 
     render() {
@@ -160,13 +148,12 @@ class Main extends Component {
           </form>
         </div>
        </div>
-
-              <Roulette
-                options={this.state.options}
-                baseSize={400}
-                onComplete={this.handleOnComplete}
-                className="roulette"
-              />
+          <Roulette
+            options={this.state.options}
+            baseSize={400}
+            onComplete={this.handleOnComplete}
+            className="roulette"
+          />
       </Hero>
     </div>
     </div>
