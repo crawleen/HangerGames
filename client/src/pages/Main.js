@@ -128,16 +128,18 @@ class Main extends Component {
                   <h3 >Search in your area, then spin the wheel.</h3>
                 </div>
                 <div className="form-group"> 
-                  <label for="keyWord">Cuisine Style:  </label>
+                  <label htmlFor="keyWord">Cuisine Style:  </label>
                   <input type="text" className="form-control" name="keyWord" value={keyWord} onChange={this.onChange} />
                 </div>
                 <div className="form-group">
+
                   <label for="location">City, State or Zip Code:  </label>
                   <input type="text" className="form-control" name="location" value={location} onChange={this.onChange} required="required" oninvalid="this.setCustomValidity('Witinnovation')"
        onvalid="this.setCustomValidity('')"/>
+
                 </div>
                 <div className="form-group">
-                  <label className= "price"for="price">Price Point:  </label>
+                  <label className= "price" htmlFor="price">Price Point:  </label>
                   <select type="text" name="price" value={price} onChange={this.onChange}>
                     <option value='1'>$</option>
                     <option value='2'>$$</option>
