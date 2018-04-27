@@ -133,7 +133,8 @@ class Main extends Component {
                 </div>
                 <div className="form-group">
                   <label for="location">City, State or Zip Code:  </label>
-                  <input type="text" className="form-control" name="location" value={location} onChange={this.onChange} />
+                  <input type="text" className="form-control" name="location" value={location} onChange={this.onChange} required="required" oninvalid="this.setCustomValidity('Witinnovation')"
+       onvalid="this.setCustomValidity('')"/>
                 </div>
                 <div className="form-group">
                   <label className= "price"for="price">Price Point:  </label>
