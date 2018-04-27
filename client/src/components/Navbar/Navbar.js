@@ -12,7 +12,7 @@ const Navbar = props => (
         </Link>
       </div>
       <span className="mr-auto pull-left">
-        <img src={logo} />
+        <img src={logo} alt= "" />
       </span>
       <ul className="nav navbar-nav ml-auto pull-right">
         <li
