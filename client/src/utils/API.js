@@ -10,6 +10,9 @@ export default {
     updateDislike: function(id) {
       return axios.put("/api/restaurants/thumbsdown" + id);
     },
+    updateComment: function(id, comment) {
+      return axios.put("/api/restaurants/comment", id, comment);
+    },
     getRestaurants: function(liked) {
       return axios.get("/api/restaurants/:" +liked);
     },

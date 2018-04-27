@@ -26,10 +26,9 @@ router.route("/")
   .route("/thumbsdown:id")  
   .put(restaurantsController.updateDislike);
 
-  //.get(restaurantsController.findAll)
-  // .get(restaurantsController.findById)
-  // .put(restaurantsController.update)
-  // .delete(restaurantsController.remove);
+  router
+  .route("/comment")  
+  .put(restaurantsController.updateComment);
 
 module.exports = router;
 

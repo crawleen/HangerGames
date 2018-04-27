@@ -37,5 +37,11 @@ module.exports = {
     .update({ "id": req.params.id }, {$set: {"disliked":true, "liked":false}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },  
+  updateComment: function(req, res) {
+    db
+    .update({ "id": req.params.id }, {$set: {"comments":req.params.comments}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }  
 };
