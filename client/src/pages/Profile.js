@@ -165,7 +165,7 @@ render() {
                                 {fav.location}
                               </td>
                               <td>
-                                User added comments
+                                <input type = "text" size = "30" />
                               </td>
                             {/* </a> */}
                             {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
@@ -210,7 +210,7 @@ render() {
                                 <button style={{backgroundColor: option.disliked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundDislikeClick}><span className = "glyphicon glyphicon-thumbs-down"></span></button>
                               </td>
                               <td>
-                                User added comments
+                              <input type = "text" size = "30" />
                               </td>
                             {/* </a> */}
                             {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
