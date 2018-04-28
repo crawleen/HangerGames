@@ -66,16 +66,15 @@ class Profile extends Component {
         this.getFavs();
     }
 
-    onCommentClick = (option, e) => {  
-      alert("here" + option.id);
-      API.updateComment(option.id,"HELP")
-        .then(res =>
-          this.setState(option.comment)
-        )
-        .catch(err => console.log(err));
-        this.getOptions();
-        this.getFavs();
-    }
+    // onCommentClick = (option, e) => {  
+    //   API.updateComment(option.id,"")
+    //     .then(res =>
+    //       this.setState(option.comment)
+    //     )
+    //     .catch(err => console.log(err));
+    //     this.getOptions();
+    //     this.getFavs();
+    // }
 
 render() {
     return (           
@@ -160,7 +159,6 @@ render() {
                       {this.state.options.map(option => {
                          let boundLikeClick = this.onLikeClick.bind(this, option);
                          let boundDislikeClick = this.onDislikeClick.bind(this, option);
-                         let boundCommentClick = this.onCommentClick.bind(this, option);
                         return (
                           <tr>
                            {/* <li key={option._id}> */}
@@ -179,7 +177,7 @@ render() {
                                 <button style={{backgroundColor: option.disliked? "#4daf6a" : "grey"}} id={option.id} type = "button" className = "btn btn-default" onClick={boundDislikeClick}><span className = "glyphicon glyphicon-thumbs-down"></span></button>
                               </td>
                               <td>
-                                <input type = "text" size = "30" /><button id={option.comment} type = "button" className = "btn btn-default" onClick={boundCommentClick}><span className = "glyphicon glyphicon-save"></span></button>
+                                <input type = "text" size = "30" />
                               </td>
                             {/* </a> */}
                             {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
