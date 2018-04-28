@@ -1,56 +1,141 @@
-var mongoose = require('mongoose');
-var passport = require('passport');
-var settings = require('../../config/settings');
-require('../../config/passport')(passport);
-var express = require('express');
-var jwt = require('jsonwebtoken');
-var router = express.Router();
-var User = require("../../models/user");
+const express = require('express');
+const validator = require('validator');
+const passport = require('passport');
 
-router.post('/register', function(req, res) {
-  console.log("SLASH REGISTER");
-  console.log(req.body.email)
-  if (!req.body.email || !req.body.password) {
-    res.json({success: false, msg: 'Please pass email and password.'});
-  } else {
-    var newUser = new User({
-    firstname: req.body.firstName,
-    lastname: req.body.lastName,
-    email: req.body.email,
-    password: req.body.password
-  });
-    // save the user
-    newUser.save(function(err) {
-      if (err) {
-        return res.json({success: false, msg: 'Email already exists.'});
-      }
-      res.json({success: true, msg: 'Successful created new user.'});
-    });
+const router = new express.Router();
+
+/**
+ * Validate the sign up form
+ *
+ * @param {object} payload - the HTTP body message
+ * @returns {object} The result of validation. Object contains a boolean validation result,
+ *                   errors tips, and a global message for the whole form.
+ */
+function validateSignupForm(payload) {
+  const errors = {};
+  let isFormValid = true;
+  let message = '';
+
+  if (!payload || typeof payload.email !== 'string' || !validator.isEmail(payload.email)) {
+    isFormValid = false;
+    errors.email = 'Please provide a correct email address.';
   }
+
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
+    isFormValid = false;
+    errors.password = 'Password must have at least 8 characters.';
+  }
+
+  if (!payload || typeof payload.name !== 'string' || payload.name.trim().length === 0) {
+    isFormValid = false;
+    errors.name = 'Please provide your name.';
+  }
+
+  if (!isFormValid) {
+    message = 'Check the form for errors.';
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  };
+}
+
+/**
+ * Validate the login form
+ *
+ * @param {object} payload - the HTTP body message
+ * @returns {object} The result of validation. Object contains a boolean validation result,
+ *                   errors tips, and a global message for the whole form.
+ */
+function validateLoginForm(payload) {
+  const errors = {};
+  let isFormValid = true;
+  let message = '';
+
+  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
+    isFormValid = false;
+    errors.email = 'Please provide your email address.';
+  }
+
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
+    isFormValid = false;
+    errors.password = 'Please provide your password.';
+  }
+
+  if (!isFormValid) {
+    message = 'Check the form for errors.';
+  }
+
+  return {
+    success: isFormValid,
+    message,
+    errors
+  };
+}
+
+router.get('/test', (req, res, next) => {
+  console.log("Route working")
 });
 
-router.post('/login', function(req, res) {
-  User.findOne({
-    email: req.body.email
-  }, function(err, user) {
-    if (err) throw err;
+router.get("/", (req, res, next)=>{
+  console.log("Auth working");
+  res.send('the auth route works!')
+});
 
-    if (!user) {
-      res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
-    } else {
-      // check if password matches
-      user.comparePassword(req.body.password, function (err, isMatch) {
-        if (isMatch && !err) {
-          // if user is found and password is right create a token
-          var token = jwt.sign(user.toJSON(), settings.secret);
-          // return the information including token as JSON
-          res.json({success: true, token: 'JWT ' + token});
-        } else {
-          res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
-        }
+router.post('/signup', (req, res, next) => {
+  console.log("Hello World Signup")
+  return passport.authenticate('local-signup', (err) => {
+    
+    if (err) {
+      if (err.name === 'MongoError' && err.code === 11000) {
+        return res.status(409).json({
+          success: false,
+          message: 'Check the form for errors.',
+          errors: {
+            email: 'This email is already taken.'
+          }
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: 'Could not process the form.'
       });
     }
-  });
+
+    return res.status(200).json({
+      success: true,
+      message: 'You have successfully signed up! Now you should be able to log in.'
+    });
+  })(req, res, next);
+});
+
+router.post('/login', (req, res, next) => {
+  return passport.authenticate('local-login', (err, token, userData) => {
+    if (err) {
+      if (err.name === 'IncorrectCredentialsError') {
+        return res.status(400).json({
+          success: false,
+          message: err.message
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: 'Could not process the form.'
+      });
+    }
+
+
+    return res.json({
+      success: true,
+      message: 'You have successfully logged in!',
+      token,
+      user: userData
+    });
+  })(req, res, next);
 });
 
 module.exports = router;
